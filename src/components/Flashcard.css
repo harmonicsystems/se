@@ -1,0 +1,166 @@
+.flashcard-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1rem;
+}
+
+.flashcard-progress {
+  font-size: 0.9rem;
+  color: #666;
+  font-weight: 500;
+}
+
+.flashcard {
+  width: 100%;
+  max-width: 400px;
+  height: 250px;
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+.flashcard-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.flashcard.flipped .flashcard-inner {
+  transform: rotateY(180deg);
+}
+
+.flashcard-front,
+.flashcard-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.flashcard-front {
+  background: linear-gradient(135deg, #006aa7, #004a77);
+  color: white;
+}
+
+.flashcard-back {
+  background: linear-gradient(135deg, #fecc00, #e6b800);
+  color: #1a1a1a;
+  transform: rotateY(180deg);
+}
+
+.flashcard-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.swedish-word {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.pronunciation {
+  font-size: 1rem;
+  opacity: 0.8;
+  font-style: italic;
+}
+
+.hint {
+  font-size: 0.85rem;
+  opacity: 0.7;
+  margin-top: 1rem;
+}
+
+.english-word {
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+.swedish-small {
+  font-size: 1.2rem;
+  opacity: 0.7;
+}
+
+.example-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+  max-width: 400px;
+}
+
+.example-toggle {
+  background: transparent;
+  border: 2px solid #006aa7;
+  color: #006aa7;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.2s;
+}
+
+.example-toggle:hover {
+  background: #006aa7;
+  color: white;
+}
+
+.example-content {
+  background: #f5f5f5;
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.example-swedish {
+  font-size: 1.1rem;
+  color: #006aa7;
+  margin: 0 0 0.5rem;
+  font-weight: 500;
+}
+
+.example-english {
+  font-size: 0.95rem;
+  color: #666;
+  margin: 0;
+  font-style: italic;
+}
+
+.flashcard-controls {
+  display: flex;
+  gap: 1rem;
+}
+
+.flashcard-controls button {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  background: #006aa7;
+  color: white;
+  transition: all 0.2s;
+}
+
+.flashcard-controls button:hover:not(:disabled) {
+  background: #004a77;
+  transform: translateY(-2px);
+}
+
+.flashcard-controls button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}

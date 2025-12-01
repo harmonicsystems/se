@@ -1,0 +1,258 @@
+* {
+  box-sizing: border-box;
+}
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #f8f9fa;
+}
+
+/* Header Styles */
+.app-header {
+  background: linear-gradient(135deg, #006aa7, #004a77);
+  color: white;
+  padding: 1.5rem 1rem 1rem;
+  text-align: center;
+}
+
+.header-content {
+  margin-bottom: 1rem;
+}
+
+.logo-button {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0;
+}
+
+.logo-button:hover {
+  opacity: 0.9;
+}
+
+.flag-icon {
+  font-size: 2rem;
+}
+
+.app-header h1 {
+  margin: 0;
+  font-size: 1.75rem;
+  font-weight: 700;
+}
+
+.header-subtitle {
+  margin: 0.25rem 0 0;
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+/* Navigation */
+.app-nav {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.app-nav button {
+  background: rgba(255, 255, 255, 0.15);
+  border: none;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.app-nav button:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.app-nav button.active {
+  background: #fecc00;
+  color: #1a1a1a;
+}
+
+/* Main Content */
+.app-main {
+  flex: 1;
+  padding: 1.5rem 1rem;
+}
+
+/* Home Page */
+.home-content {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.welcome-section {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.welcome-section h2 {
+  color: #006aa7;
+  font-size: 2rem;
+  margin: 0 0 0.5rem;
+}
+
+.welcome-section p {
+  color: #555;
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+.stats-section {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.stat-card {
+  background: white;
+  padding: 1.25rem 2rem;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.stat-number {
+  display: block;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #006aa7;
+}
+
+.stat-label {
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.home-actions {
+  display: grid;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.action-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1.5rem;
+  background: white;
+  border: 2px solid #eee;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-align: center;
+}
+
+.action-card:hover {
+  border-color: #006aa7;
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0, 106, 167, 0.15);
+}
+
+.action-icon {
+  font-size: 2.5rem;
+}
+
+.action-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #006aa7;
+}
+
+.action-desc {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.phrase-of-day {
+  background: linear-gradient(135deg, #fecc00, #e6b800);
+  padding: 1.5rem;
+  border-radius: 16px;
+  text-align: center;
+}
+
+.phrase-of-day h3 {
+  margin: 0 0 1rem;
+  color: #1a1a1a;
+  font-size: 1rem;
+}
+
+.phrase-swedish {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #004a77;
+  margin: 0 0 0.5rem;
+}
+
+.phrase-english {
+  font-size: 1rem;
+  color: #333;
+  margin: 0;
+  font-style: italic;
+}
+
+/* Practice Content */
+.practice-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.no-items {
+  text-align: center;
+  color: #666;
+  padding: 2rem;
+}
+
+/* Footer */
+.app-footer {
+  background: #1a1a1a;
+  color: #999;
+  padding: 1rem;
+  text-align: center;
+  font-size: 0.85rem;
+}
+
+.app-footer p {
+  margin: 0;
+}
+
+/* Responsive */
+@media (min-width: 500px) {
+  .home-actions {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .action-card {
+    padding: 2rem 1rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .app-header h1 {
+    font-size: 1.4rem;
+  }
+
+  .stats-section {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .stat-card {
+    width: 100%;
+    max-width: 200px;
+  }
+}

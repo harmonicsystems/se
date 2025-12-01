@@ -1,0 +1,80 @@
+.vocabulary-list {
+  display: grid;
+  gap: 1rem;
+  padding: 1rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.vocab-empty {
+  text-align: center;
+  color: #666;
+  padding: 2rem;
+}
+
+.vocab-item {
+  background: white;
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.vocab-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.vocab-main {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.vocab-swedish {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #006aa7;
+}
+
+.vocab-english {
+  font-size: 1rem;
+  color: #333;
+}
+
+.vocab-pronunciation {
+  display: block;
+  font-size: 0.85rem;
+  color: #888;
+  font-style: italic;
+  margin-top: 0.25rem;
+}
+
+.vocab-example {
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid #eee;
+}
+
+.example-se {
+  font-size: 0.95rem;
+  color: #006aa7;
+  margin: 0;
+  font-weight: 500;
+}
+
+.example-en {
+  font-size: 0.85rem;
+  color: #666;
+  margin: 0.25rem 0 0;
+  font-style: italic;
+}
+
+@media (max-width: 500px) {
+  .vocab-main {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+}

@@ -1,0 +1,41 @@
+.category-selector {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+  padding: 1rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.category-chip {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.5rem 1rem;
+  border: 2px solid #ddd;
+  border-radius: 20px;
+  background: white;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.2s;
+}
+
+.category-chip:hover {
+  border-color: #006aa7;
+  background: #f0f7ff;
+}
+
+.category-chip.active {
+  border-color: #006aa7;
+  background: #006aa7;
+  color: white;
+}
+
+.category-emoji {
+  font-size: 1.1rem;
+}
+
+.category-name {
+  font-weight: 500;
+}
