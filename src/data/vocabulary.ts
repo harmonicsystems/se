@@ -56,7 +56,7 @@ export const vocabulary: VocabularyItem[] = [
   { id: 'vagn', swedish: 'vagn', english: 'stroller/pram', pronunciation: 'vahng', category: 'baby-basics' },
   { id: 'barnvagn', swedish: 'barnvagn', english: 'baby carriage', pronunciation: 'BAHRN-vahng', category: 'baby-basics' },
   { id: 'spjälsäng', swedish: 'spjälsäng', english: 'crib', pronunciation: 'SPYAL-seng', category: 'baby-basics' },
-  { id: 'vagga', swedish: 'vagga', english: 'cradle', pronunciation: 'VAH-gah', category: 'baby-basics' },
+  { id: 'vagga-noun', swedish: 'vagga', english: 'cradle', pronunciation: 'VAH-gah', category: 'baby-basics' },
   { id: 'leksak', swedish: 'leksak', english: 'toy', pronunciation: 'LEK-sahk', example: { swedish: 'Bebisen gillar den leksaken.', english: 'The baby likes that toy.' }, category: 'baby-basics' },
   { id: 'filt', swedish: 'filt', english: 'blanket', pronunciation: 'filt', category: 'baby-basics' },
   { id: 'kläder', swedish: 'kläder', english: 'clothes', pronunciation: 'KLEH-der', category: 'baby-basics' },
@@ -187,7 +187,7 @@ export const vocabulary: VocabularyItem[] = [
   { id: 'kunna', swedish: 'kunna', english: 'to be able/can', pronunciation: 'KUN-nah', example: { swedish: 'Kan ni komma nästa månad?', english: 'Can you come next month?' }, category: 'verbs' },
   { id: 'skicka', swedish: 'skicka', english: 'to send', pronunciation: 'SHIK-ah', example: { swedish: 'Jag ska skicka bilder!', english: "I'll send pictures!" }, category: 'verbs' },
   { id: 'ringa', swedish: 'ringa', english: 'to call', pronunciation: 'RING-ah', example: { swedish: 'Vi kan ringa i kväll.', english: 'We can call tonight.' }, category: 'verbs' },
-  { id: 'prata', swedish: 'prata', english: 'to talk', pronunciation: 'PRAH-tah', example: { swedish: 'Vi måste prata mer ofta.', english: 'We must talk more often.' }, category: 'verbs' },
+  { id: 'prata-general', swedish: 'prata', english: 'to talk', pronunciation: 'PRAH-tah', example: { swedish: 'Vi måste prata mer ofta.', english: 'We must talk more often.' }, category: 'verbs' },
   { id: 'berätta', swedish: 'berätta', english: 'to tell', pronunciation: 'beh-RET-tah', example: { swedish: 'Berätta om bebisen!', english: 'Tell us about the baby!' }, category: 'verbs' },
   { id: 'visa', swedish: 'visa', english: 'to show', pronunciation: 'VEE-sah', example: { swedish: 'Jag vill visa er bebisen!', english: 'I want to show you the baby!' }, category: 'verbs' },
 
