@@ -76,7 +76,7 @@ export function SpeakingPractice() {
         <div className="swedish-sentence">{currentSentence.swedish}</div>
 
         <div className="listen-buttons">
-          <SpeakButton text={currentSentence.swedish} size="large" showSlowButton />
+          <SpeakButton text={currentSentence.swedish} size="large" />
         </div>
 
         {showPronunciation && (

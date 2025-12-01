@@ -47,7 +47,7 @@ export function Flashcard({ item, onNext, onPrevious, currentIndex, totalCount }
                 <span className="pronunciation">[{item.pronunciation}]</span>
               )}
               <div className="speak-buttons">
-                <SpeakButton text={item.swedish} size="medium" showSlowButton />
+                <SpeakButton text={item.swedish} size="medium" />
               </div>
               <span className="hint">Click to reveal</span>
             </div>
@@ -57,7 +57,7 @@ export function Flashcard({ item, onNext, onPrevious, currentIndex, totalCount }
               <span className="english-word">{item.english}</span>
               <span className="swedish-small">{item.swedish}</span>
               <div className="speak-buttons">
-                <SpeakButton text={item.swedish} size="medium" showSlowButton />
+                <SpeakButton text={item.swedish} size="medium" />
               </div>
             </div>
           </div>

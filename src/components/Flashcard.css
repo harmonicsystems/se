@@ -72,13 +72,13 @@
 
 .pronunciation {
   font-size: 1rem;
-  opacity: 0.8;
+  color: rgba(255, 255, 255, 0.95);
   font-style: italic;
 }
 
 .hint {
   font-size: 0.85rem;
-  opacity: 0.7;
+  color: rgba(255, 255, 255, 0.9);
   margin-top: 1rem;
 }
 
@@ -89,7 +89,7 @@
 
 .swedish-small {
   font-size: 1.2rem;
-  opacity: 0.7;
+  color: #4a4a4a;
 }
 
 .example-section {

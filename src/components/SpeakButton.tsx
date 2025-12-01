@@ -4,12 +4,11 @@ import './SpeakButton.css';
 interface SpeakButtonProps {
   text: string;
   size?: 'small' | 'medium' | 'large';
-  showSlowButton?: boolean;
   label?: string;
 }
 
-export function SpeakButton({ text, size = 'medium', showSlowButton = false, label }: SpeakButtonProps) {
-  const { speak, speakSlow, stop, isSpeaking, isSupported, hasSwedishVoice } = useSpeech();
+export function SpeakButton({ text, size = 'medium', label }: SpeakButtonProps) {
+  const { speak, stop, isSpeaking, isSupported, hasSwedishVoice } = useSpeech();
 
   if (!isSupported) {
     return null;
@@ -21,15 +20,6 @@ export function SpeakButton({ text, size = 'medium', showSlowButton = false, lab
       stop();
     } else {
       speak(text);
-    }
-  };
-
-  const handleSlowClick = (e: React.MouseEvent) => {
-    e.stopPropagation();
-    if (isSpeaking) {
-      stop();
-    } else {
-      speakSlow(text);
     }
   };
 
@@ -48,16 +38,6 @@ export function SpeakButton({ text, size = 'medium', showSlowButton = false, lab
         )}
         {label && <span className="speak-label">{label}</span>}
       </button>
-      {showSlowButton && !isSpeaking && (
-        <button
-          className="speak-btn slow-btn"
-          onClick={handleSlowClick}
-          title="Listen slowly"
-          aria-label="Listen slowly"
-        >
-          <span className="speaker-icon">🐢</span>
-        </button>
-      )}
     </div>
   );
 }

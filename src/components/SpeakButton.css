@@ -27,14 +27,6 @@
   animation: pulse 1s infinite;
 }
 
-.speak-btn.slow-btn {
-  background-color: #28a745;
-}
-
-.speak-btn.slow-btn:hover {
-  background-color: #218838;
-}
-
 /* Size variants */
 .speak-button-container.small .speak-btn {
   width: 28px;
