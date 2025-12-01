@@ -84,6 +84,12 @@
   line-height: 1.4;
 }
 
+.listen-buttons {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
 .pronunciation {
   font-size: 1rem;
   color: #666;

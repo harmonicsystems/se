@@ -1,0 +1,87 @@
+.speak-button-container {
+  display: inline-flex;
+  gap: 4px;
+  align-items: center;
+}
+
+.speak-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background-color: #006aa7;
+  color: white;
+}
+
+.speak-btn:hover {
+  background-color: #005a8e;
+  transform: scale(1.1);
+}
+
+.speak-btn.speaking {
+  background-color: #dc3545;
+  animation: pulse 1s infinite;
+}
+
+.speak-btn.slow-btn {
+  background-color: #28a745;
+}
+
+.speak-btn.slow-btn:hover {
+  background-color: #218838;
+}
+
+/* Size variants */
+.speak-button-container.small .speak-btn {
+  width: 28px;
+  height: 28px;
+  font-size: 14px;
+}
+
+.speak-button-container.medium .speak-btn {
+  width: 36px;
+  height: 36px;
+  font-size: 18px;
+}
+
+.speak-button-container.large .speak-btn {
+  width: 48px;
+  height: 48px;
+  font-size: 24px;
+}
+
+/* With label - not circular */
+.speak-btn:has(.speak-label) {
+  border-radius: 20px;
+  padding: 8px 16px;
+  width: auto;
+  height: auto;
+}
+
+.speak-label {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.speaker-icon,
+.stop-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(220, 53, 69, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(220, 53, 69, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(220, 53, 69, 0);
+  }
+}

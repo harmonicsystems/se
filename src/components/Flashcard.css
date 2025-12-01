@@ -164,3 +164,18 @@
   background: #ccc;
   cursor: not-allowed;
 }
+
+.speak-buttons {
+  margin: 0.5rem 0;
+}
+
+.example-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.example-row .example-swedish {
+  margin: 0;
+}

@@ -5,13 +5,15 @@ import { CategorySelector } from './components/CategorySelector';
 import { VocabularyList } from './components/VocabularyList';
 import { SpeakingPractice } from './components/SpeakingPractice';
 import { Conversations } from './components/Conversations';
+import { Lullabies } from './components/Lullabies';
 import { vocabulary, categories, getVocabularyByCategory } from './data/vocabulary';
 import { speakingSentences } from './data/sentences';
 import { conversations } from './data/conversations';
+import { lullabies } from './data/lullabies';
 import type { Category } from './types/vocabulary';
 import './App.css';
 
-type View = 'home' | 'flashcards' | 'quiz' | 'vocabulary' | 'speaking' | 'conversations';
+type View = 'home' | 'flashcards' | 'quiz' | 'vocabulary' | 'speaking' | 'conversations' | 'lullabies';
 
 function App() {
   const [currentView, setCurrentView] = useState<View>('home');
@@ -69,6 +71,10 @@ function App() {
                 <span className="stat-number">{conversations.length}</span>
                 <span className="stat-label">Conversations</span>
               </div>
+              <div className="stat-card">
+                <span className="stat-number">{lullabies.length}</span>
+                <span className="stat-label">Lullabies</span>
+              </div>
             </div>
 
             <div className="home-actions">
@@ -94,6 +100,12 @@ function App() {
                 <span className="action-icon">💬</span>
                 <span className="action-title">Conversations</span>
                 <span className="action-desc">Realistic dialogues</span>
+              </button>
+
+              <button className="action-card" onClick={() => handleViewChange('lullabies')}>
+                <span className="action-icon">🎵</span>
+                <span className="action-title">Lullabies</span>
+                <span className="action-desc">Swedish songs with lyrics</span>
               </button>
 
               <button className="action-card" onClick={() => handleViewChange('vocabulary')}>
@@ -154,6 +166,9 @@ function App() {
       case 'conversations':
         return <Conversations />;
 
+      case 'lullabies':
+        return <Lullabies />;
+
       case 'vocabulary':
         return (
           <div className="practice-content">
@@ -209,6 +224,12 @@ function App() {
             onClick={() => handleViewChange('conversations')}
           >
             Dialogues
+          </button>
+          <button
+            className={currentView === 'lullabies' ? 'active' : ''}
+            onClick={() => handleViewChange('lullabies')}
+          >
+            Songs
           </button>
           <button
             className={currentView === 'vocabulary' ? 'active' : ''}

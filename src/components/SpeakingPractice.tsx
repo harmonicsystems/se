@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import type { SpeakingSentence } from '../types/vocabulary';
 import { speakingSentences, getSentencesByDifficulty } from '../data/sentences';
+import { SpeakButton } from './SpeakButton';
 import './SpeakingPractice.css';
 
 type Difficulty = 'all' | 'beginner' | 'intermediate' | 'advanced';
@@ -91,6 +92,10 @@ export function SpeakingPractice() {
 
         <div className="swedish-sentence">{currentSentence.swedish}</div>
 
+        <div className="listen-buttons">
+          <SpeakButton text={currentSentence.swedish} size="large" showSlowButton />
+        </div>
+
         {showPronunciation && (
           <div className="pronunciation">[{currentSentence.pronunciation}]</div>
         )}
@@ -128,10 +133,11 @@ export function SpeakingPractice() {
       <div className="speaking-tips">
         <h3>Tips for Practice:</h3>
         <ul>
-          <li>Read the Swedish sentence out loud slowly</li>
-          <li>Use the pronunciation guide to help with tricky sounds</li>
-          <li>Try to say it without looking at the guide</li>
-          <li>Record yourself and compare to native speakers</li>
+          <li>Click the speaker button to hear the sentence in Swedish</li>
+          <li>Use the turtle button for a slower pronunciation</li>
+          <li>Listen first, then try to repeat it yourself</li>
+          <li>Use the pronunciation guide for tricky sounds</li>
+          <li>Record yourself and compare to the audio</li>
           <li>Practice the same sentence multiple times</li>
         </ul>
       </div>

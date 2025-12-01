@@ -154,6 +154,58 @@
   cursor: pointer;
 }
 
+.playback-controls {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.play-all-btn,
+.stop-all-btn {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.play-all-btn {
+  background: #006aa7;
+  color: white;
+}
+
+.play-all-btn:hover {
+  background: #004a77;
+  transform: scale(1.05);
+}
+
+.stop-all-btn {
+  background: #dc3545;
+  color: white;
+  animation: pulse-stop 1s infinite;
+}
+
+.stop-all-btn:hover {
+  background: #c82333;
+}
+
+@keyframes pulse-stop {
+  0% {
+    box-shadow: 0 0 0 0 rgba(220, 53, 69, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(220, 53, 69, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(220, 53, 69, 0);
+  }
+}
+
 .conversation-lines {
   display: flex;
   flex-direction: column;
@@ -209,8 +261,15 @@
   flex: 1;
 }
 
+.line-swedish-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
 .line-swedish {
-  margin: 0 0 0.25rem;
+  margin: 0;
   font-weight: 500;
   color: #006aa7;
   font-size: 1.05rem;

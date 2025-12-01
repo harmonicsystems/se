@@ -1,12 +1,46 @@
 import { useState } from 'react';
 import type { Conversation, ConversationLine } from '../types/vocabulary';
 import { conversations } from '../data/conversations';
+import { SpeakButton } from './SpeakButton';
+import { useSpeech } from '../hooks/useSpeech';
 import './Conversations.css';
 
 export function Conversations() {
   const [selectedConversation, setSelectedConversation] = useState<Conversation | null>(null);
   const [showTranslations, setShowTranslations] = useState(true);
   const [highlightedLine, setHighlightedLine] = useState<number | null>(null);
+  const [playingAll, setPlayingAll] = useState(false);
+  const { isSupported } = useSpeech();
+
+  const playAllLines = async () => {
+    if (!selectedConversation) return;
+
+    setPlayingAll(true);
+    for (let i = 0; i < selectedConversation.lines.length; i++) {
+      setHighlightedLine(i);
+      const line = selectedConversation.lines[i];
+
+      // Create a promise that resolves when speech ends
+      await new Promise<void>((resolve) => {
+        const utterance = new SpeechSynthesisUtterance(line.swedish);
+        utterance.lang = 'sv-SE';
+        utterance.rate = 0.9;
+        utterance.onend = () => {
+          setTimeout(resolve, 500); // Pause between lines
+        };
+        utterance.onerror = () => resolve();
+        speechSynthesis.speak(utterance);
+      });
+    }
+    setPlayingAll(false);
+    setHighlightedLine(null);
+  };
+
+  const stopPlayback = () => {
+    speechSynthesis.cancel();
+    setPlayingAll(false);
+    setHighlightedLine(null);
+  };
 
   const getDifficultyColor = (diff: string) => {
     switch (diff) {
@@ -76,6 +110,20 @@ export function Conversations() {
           </label>
         </div>
 
+        {isSupported && (
+          <div className="playback-controls">
+            {playingAll ? (
+              <button className="stop-all-btn" onClick={stopPlayback}>
+                Stop Playback
+              </button>
+            ) : (
+              <button className="play-all-btn" onClick={playAllLines}>
+                Play Entire Conversation
+              </button>
+            )}
+          </div>
+        )}
+
         <div className="conversation-lines">
           {selectedConversation.lines.map((line, index) => (
             <div
@@ -88,7 +136,10 @@ export function Conversations() {
                 <span className="speaker-name">{getSpeakerLabel(line.speaker)}</span>
               </div>
               <div className="line-content">
-                <p className="line-swedish">{line.swedish}</p>
+                <div className="line-swedish-row">
+                  <p className="line-swedish">{line.swedish}</p>
+                  <SpeakButton text={line.swedish} size="small" />
+                </div>
                 {showTranslations && <p className="line-english">{line.english}</p>}
               </div>
             </div>
@@ -98,11 +149,12 @@ export function Conversations() {
         <div className="practice-tips">
           <h3>How to Practice:</h3>
           <ol>
-            <li>Read through the entire conversation first</li>
+            <li>Click "Play Entire Conversation" to hear the full dialogue</li>
+            <li>Click the speaker icon on any line to hear just that line</li>
             <li>Practice reading YOUR lines (Du) out loud</li>
             <li>Try covering the English and translating yourself</li>
-            <li>Role-play with a partner if possible</li>
-            <li>Record yourself and listen back</li>
+            <li>Role-play: You read your lines, listen to the grandparents' responses</li>
+            <li>Record yourself and compare to the audio</li>
           </ol>
         </div>
       </div>

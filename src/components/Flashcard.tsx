@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import type { VocabularyItem } from '../types/vocabulary';
+import { SpeakButton } from './SpeakButton';
 import './Flashcard.css';
 
 interface FlashcardProps {
@@ -45,6 +46,9 @@ export function Flashcard({ item, onNext, onPrevious, currentIndex, totalCount }
               {item.pronunciation && (
                 <span className="pronunciation">[{item.pronunciation}]</span>
               )}
+              <div className="speak-buttons">
+                <SpeakButton text={item.swedish} size="medium" showSlowButton />
+              </div>
               <span className="hint">Click to reveal</span>
             </div>
           </div>
@@ -52,6 +56,9 @@ export function Flashcard({ item, onNext, onPrevious, currentIndex, totalCount }
             <div className="flashcard-content">
               <span className="english-word">{item.english}</span>
               <span className="swedish-small">{item.swedish}</span>
+              <div className="speak-buttons">
+                <SpeakButton text={item.swedish} size="medium" showSlowButton />
+              </div>
             </div>
           </div>
         </div>
@@ -70,7 +77,10 @@ export function Flashcard({ item, onNext, onPrevious, currentIndex, totalCount }
           </button>
           {showExample && (
             <div className="example-content">
-              <p className="example-swedish">"{item.example.swedish}"</p>
+              <div className="example-row">
+                <p className="example-swedish">"{item.example.swedish}"</p>
+                <SpeakButton text={item.example.swedish} size="small" />
+              </div>
               <p className="example-english">"{item.example.english}"</p>
             </div>
           )}
