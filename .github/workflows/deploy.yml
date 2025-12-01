@@ -2,7 +2,7 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: ['main']
+    branches: ['claude/swedish-practice-site-013TXMEDiQrT32nBWGLy1Hpz']
   workflow_dispatch:
 
 permissions:
