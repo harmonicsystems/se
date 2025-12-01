@@ -11,11 +11,6 @@
 
 .conversations-header h2 {
   color: #006aa7;
-  margin: 0 0 0.5rem;
-}
-
-.conversations-header p {
-  color: #666;
   margin: 0;
 }
 
@@ -33,7 +28,6 @@
   text-align: left;
   cursor: pointer;
   transition: all 0.2s;
-  position: relative;
 }
 
 .conversation-card:hover {
@@ -42,45 +36,17 @@
   box-shadow: 0 4px 15px rgba(0, 106, 167, 0.15);
 }
 
-.card-difficulty {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  padding: 0.2rem 0.6rem;
-  border-radius: 10px;
-  font-size: 0.7rem;
-  color: white;
-  text-transform: uppercase;
-  font-weight: 600;
-}
-
 .conversation-card h3 {
   margin: 0 0 0.25rem;
   color: #006aa7;
   font-size: 1.1rem;
-  padding-right: 70px;
 }
 
 .card-swedish {
   color: #888;
   font-style: italic;
   font-size: 0.9rem;
-  margin: 0 0 0.5rem;
-}
-
-.card-description {
-  color: #555;
-  font-size: 0.85rem;
-  margin: 0 0 0.75rem;
-}
-
-.card-lines {
-  display: inline-block;
-  background: #f5f5f5;
-  padding: 0.25rem 0.5rem;
-  border-radius: 4px;
-  font-size: 0.75rem;
-  color: #666;
+  margin: 0;
 }
 
 /* Conversation Detail */
@@ -120,23 +86,16 @@
 .conversation-title-swedish {
   color: #888;
   font-style: italic;
-  margin: 0 0 0.75rem;
-}
-
-.difficulty-tag {
-  display: inline-block;
-  padding: 0.25rem 0.75rem;
-  border-radius: 12px;
-  font-size: 0.8rem;
-  color: white;
-  text-transform: uppercase;
-  font-weight: 600;
+  margin: 0;
 }
 
 .conversation-options {
   display: flex;
   justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
   margin-bottom: 1.5rem;
+  flex-wrap: wrap;
 }
 
 .conversation-options label {
@@ -154,63 +113,39 @@
   cursor: pointer;
 }
 
-.playback-controls {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 1.5rem;
-}
-
-.play-all-btn,
-.stop-all-btn {
-  padding: 0.75rem 1.5rem;
+.play-btn,
+.stop-btn {
+  padding: 0.5rem 1rem;
   border: none;
-  border-radius: 25px;
+  border-radius: 8px;
   cursor: pointer;
-  font-size: 1rem;
+  font-size: 0.9rem;
   font-weight: 500;
   transition: all 0.2s;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
 }
 
-.play-all-btn {
+.play-btn {
   background: #006aa7;
   color: white;
 }
 
-.play-all-btn:hover {
+.play-btn:hover {
   background: #004a77;
-  transform: scale(1.05);
 }
 
-.stop-all-btn {
+.stop-btn {
   background: #dc3545;
   color: white;
-  animation: pulse-stop 1s infinite;
 }
 
-.stop-all-btn:hover {
+.stop-btn:hover {
   background: #c82333;
-}
-
-@keyframes pulse-stop {
-  0% {
-    box-shadow: 0 0 0 0 rgba(220, 53, 69, 0.4);
-  }
-  70% {
-    box-shadow: 0 0 0 10px rgba(220, 53, 69, 0);
-  }
-  100% {
-    box-shadow: 0 0 0 0 rgba(220, 53, 69, 0);
-  }
 }
 
 .conversation-lines {
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
-  margin-bottom: 2rem;
 }
 
 .conversation-line {
@@ -218,12 +153,7 @@
   gap: 1rem;
   padding: 1rem;
   border-radius: 12px;
-  cursor: pointer;
   transition: all 0.2s;
-}
-
-.conversation-line:hover {
-  transform: translateX(5px);
 }
 
 .conversation-line.highlighted {
@@ -240,21 +170,11 @@
   margin-left: 2rem;
 }
 
-.speaker-info {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-width: 60px;
-}
-
-.speaker-emoji {
-  font-size: 1.5rem;
-}
-
 .speaker-name {
-  font-size: 0.7rem;
+  font-size: 0.8rem;
+  font-weight: 600;
   color: #666;
-  text-align: center;
+  min-width: 50px;
 }
 
 .line-content {
@@ -276,37 +196,10 @@
 }
 
 .line-english {
-  margin: 0;
+  margin: 0.25rem 0 0;
   color: #666;
   font-size: 0.9rem;
   font-style: italic;
-}
-
-.practice-tips {
-  background: #f5f5f5;
-  padding: 1.25rem;
-  border-radius: 12px;
-}
-
-.practice-tips h3 {
-  color: #006aa7;
-  font-size: 1rem;
-  margin: 0 0 0.75rem;
-}
-
-.practice-tips ol {
-  margin: 0;
-  padding-left: 1.25rem;
-}
-
-.practice-tips li {
-  color: #555;
-  font-size: 0.9rem;
-  margin-bottom: 0.5rem;
-}
-
-.practice-tips li:last-child {
-  margin-bottom: 0;
 }
 
 @media (max-width: 600px) {
@@ -316,10 +209,6 @@
 
   .speaker-other {
     margin-left: 0;
-  }
-
-  .speaker-info {
-    min-width: 50px;
   }
 
   .line-swedish {

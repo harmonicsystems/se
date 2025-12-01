@@ -14,22 +14,18 @@ export function CategorySelector({
 }: CategorySelectorProps) {
   return (
     <div className="category-selector">
-      <button
-        className={`category-chip ${selectedCategory === null ? 'active' : ''}`}
-        onClick={() => onSelectCategory(null)}
+      <select
+        className="category-dropdown"
+        value={selectedCategory || ''}
+        onChange={(e) => onSelectCategory(e.target.value || null)}
       >
-        All
-      </button>
-      {categories.map((category) => (
-        <button
-          key={category.id}
-          className={`category-chip ${selectedCategory === category.id ? 'active' : ''}`}
-          onClick={() => onSelectCategory(category.id)}
-        >
-          <span className="category-emoji">{category.emoji}</span>
-          <span className="category-name">{category.name}</span>
-        </button>
-      ))}
+        <option value="">All Categories</option>
+        {categories.map((category) => (
+          <option key={category.id} value={category.id}>
+            {category.emoji} {category.name}
+          </option>
+        ))}
+      </select>
     </div>
   );
 }

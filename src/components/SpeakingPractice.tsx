@@ -35,19 +35,6 @@ export function SpeakingPractice() {
     setShowTranslation(false);
   };
 
-  const getDifficultyColor = (diff: string) => {
-    switch (diff) {
-      case 'beginner':
-        return '#28a745';
-      case 'intermediate':
-        return '#ffc107';
-      case 'advanced':
-        return '#dc3545';
-      default:
-        return '#666';
-    }
-  };
-
   if (!currentSentence) {
     return <p className="no-sentences">No sentences available for this difficulty level.</p>;
   }
@@ -56,38 +43,34 @@ export function SpeakingPractice() {
     <div className="speaking-practice">
       <div className="speaking-header">
         <h2>Speaking Practice</h2>
-        <p>Practice saying these sentences out loud!</p>
       </div>
 
-      <div className="difficulty-selector">
-        {(['all', 'beginner', 'intermediate', 'advanced'] as const).map((diff) => (
-          <button
-            key={diff}
-            className={`diff-btn ${difficulty === diff ? 'active' : ''}`}
-            onClick={() => {
-              setDifficulty(diff);
-              setCurrentIndex(0);
-              setShowTranslation(false);
-            }}
-            style={
-              difficulty === diff && diff !== 'all'
-                ? { backgroundColor: getDifficultyColor(diff), borderColor: getDifficultyColor(diff) }
-                : {}
-            }
-          >
-            {diff === 'all' ? 'All Levels' : diff.charAt(0).toUpperCase() + diff.slice(1)}
-          </button>
-        ))}
+      <div className="filter-row">
+        <select
+          className="difficulty-dropdown"
+          value={difficulty}
+          onChange={(e) => {
+            setDifficulty(e.target.value as Difficulty);
+            setCurrentIndex(0);
+            setShowTranslation(false);
+          }}
+        >
+          <option value="all">All Levels</option>
+          <option value="beginner">Beginner</option>
+          <option value="intermediate">Intermediate</option>
+          <option value="advanced">Advanced</option>
+        </select>
+        <label className="pronunciation-toggle">
+          <input
+            type="checkbox"
+            checked={showPronunciation}
+            onChange={(e) => setShowPronunciation(e.target.checked)}
+          />
+          Pronunciation
+        </label>
       </div>
 
       <div className="sentence-card">
-        <div
-          className="difficulty-badge"
-          style={{ backgroundColor: getDifficultyColor(currentSentence.difficulty) }}
-        >
-          {currentSentence.difficulty}
-        </div>
-
         <div className="context-label">{currentSentence.context}</div>
 
         <div className="swedish-sentence">{currentSentence.swedish}</div>
@@ -115,31 +98,8 @@ export function SpeakingPractice() {
         <button onClick={handleNext}>Next</button>
       </div>
 
-      <div className="speaking-options">
-        <label>
-          <input
-            type="checkbox"
-            checked={showPronunciation}
-            onChange={(e) => setShowPronunciation(e.target.checked)}
-          />
-          Show pronunciation guide
-        </label>
-      </div>
-
       <div className="speaking-progress">
-        {currentIndex + 1} / {filteredSentences.length} sentences
-      </div>
-
-      <div className="speaking-tips">
-        <h3>Tips for Practice:</h3>
-        <ul>
-          <li>Click the speaker button to hear the sentence in Swedish</li>
-          <li>Use the turtle button for a slower pronunciation</li>
-          <li>Listen first, then try to repeat it yourself</li>
-          <li>Use the pronunciation guide for tricky sounds</li>
-          <li>Record yourself and compare to the audio</li>
-          <li>Practice the same sentence multiple times</li>
-        </ul>
+        {currentIndex + 1} / {filteredSentences.length}
       </div>
     </div>
   );
