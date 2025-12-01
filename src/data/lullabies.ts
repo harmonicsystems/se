@@ -3,6 +3,7 @@ export interface Lullaby {
   title: string;
   titleEnglish: string;
   description: string;
+  spotifyUrl: string;
   lyrics: {
     swedish: string;
     english: string;
@@ -17,6 +18,7 @@ export const lullabies: Lullaby[] = [
     titleEnglish: 'Hush Little One',
     description:
       'One of the most beloved Swedish lullabies, often sung at bedtime. The melody is gentle and soothing.',
+    spotifyUrl: 'https://open.spotify.com/search/byssan%20lull%20vaggvisa',
     lyrics: [
       {
         swedish: 'Byssan lansen lansen lotansen,',
@@ -52,6 +54,7 @@ export const lullabies: Lullaby[] = [
     titleEnglish: "The Troll Mother's Lullaby",
     description:
       'A whimsical lullaby about a troll mother singing to her 11 troll children. Very popular in Sweden.',
+    spotifyUrl: 'https://open.spotify.com/search/trollmors%20vaggs%C3%A5ng',
     lyrics: [
       {
         swedish: 'Trollmors vaggsång klingar,',
@@ -111,6 +114,7 @@ export const lullabies: Lullaby[] = [
     titleEnglish: 'Itsy Bitsy Spider',
     description:
       'The Swedish version of Itsy Bitsy Spider! Complete with hand motions, this is a favorite for babies and toddlers.',
+    spotifyUrl: 'https://open.spotify.com/search/imse%20vimse%20spindel',
     lyrics: [
       {
         swedish: 'Imse vimse spindel klättra upp på tråån,',
@@ -138,6 +142,7 @@ export const lullabies: Lullaby[] = [
     titleEnglish: 'Hush-a-bye',
     description:
       'A shorter, simpler version of Byssan Lansen, perfect for sleepy babies.',
+    spotifyUrl: 'https://open.spotify.com/search/byssan%20lull',
     lyrics: [
       {
         swedish: 'Byssan lull, byssan lansen,',
@@ -173,6 +178,7 @@ export const lullabies: Lullaby[] = [
     titleEnglish: 'The Little Frogs',
     description:
       'THE essential Midsummer song! Swedes dance around the maypole pretending to be frogs with this silly, beloved song.',
+    spotifyUrl: 'https://open.spotify.com/search/sm%C3%A5%20grodorna',
     lyrics: [
       {
         swedish: 'Små grodorna, små grodorna',
@@ -227,6 +233,7 @@ export const lullabies: Lullaby[] = [
     title: 'Blinka lilla stjärna',
     titleEnglish: 'Twinkle Little Star',
     description: 'The Swedish version of Twinkle Twinkle Little Star.',
+    spotifyUrl: 'https://open.spotify.com/search/blinka%20lilla%20stj%C3%A4rna',
     lyrics: [
       {
         swedish: 'Blinka lilla stjärna där,',
@@ -262,6 +269,7 @@ export const lullabies: Lullaby[] = [
     titleEnglish: "Mother's Little Olle",
     description:
       'A story-song about a little boy who gets lost in the blueberry forest and is protected by a bear. A Swedish classic!',
+    spotifyUrl: 'https://open.spotify.com/search/mors%20lilla%20olle',
     lyrics: [
       {
         swedish: 'Mors lilla Olle i skogen gick,',

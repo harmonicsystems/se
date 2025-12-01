@@ -10,10 +10,10 @@ export function Conversations() {
   const [showTranslations, setShowTranslations] = useState(true);
   const [highlightedLine, setHighlightedLine] = useState<number | null>(null);
   const [playingAll, setPlayingAll] = useState(false);
-  const { isSupported } = useSpeech();
+  const { isSupported, swedishVoice } = useSpeech();
 
   const playAllLines = async () => {
-    if (!selectedConversation) return;
+    if (!selectedConversation || !swedishVoice) return;
 
     setPlayingAll(true);
     for (let i = 0; i < selectedConversation.lines.length; i++) {
@@ -23,7 +23,8 @@ export function Conversations() {
       // Create a promise that resolves when speech ends
       await new Promise<void>((resolve) => {
         const utterance = new SpeechSynthesisUtterance(line.swedish);
-        utterance.lang = 'sv-SE';
+        utterance.voice = swedishVoice;
+        utterance.lang = swedishVoice.lang;
         utterance.rate = 0.9;
         utterance.onend = () => {
           setTimeout(resolve, 500); // Pause between lines

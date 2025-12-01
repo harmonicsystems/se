@@ -147,53 +147,34 @@
   cursor: pointer;
 }
 
-.lullaby-detail .playback-controls {
+.spotify-section {
   display: flex;
   justify-content: center;
   margin-bottom: 1.5rem;
 }
 
-.play-btn,
-.stop-btn {
-  padding: 0.75rem 2rem;
-  border: none;
+.spotify-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: #1db954;
+  color: white;
+  text-decoration: none;
   border-radius: 25px;
-  cursor: pointer;
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 500;
   transition: all 0.2s;
 }
 
-.play-btn {
-  background: linear-gradient(135deg, #fecc00, #e6b800);
-  color: #1a1a1a;
-}
-
-.play-btn:hover {
+.spotify-btn:hover {
+  background: #1ed760;
   transform: scale(1.05);
-  box-shadow: 0 4px 15px rgba(254, 204, 0, 0.4);
+  box-shadow: 0 4px 15px rgba(29, 185, 84, 0.4);
 }
 
-.stop-btn {
-  background: #dc3545;
-  color: white;
-  animation: pulse-stop 1s infinite;
-}
-
-.stop-btn:hover {
-  background: #c82333;
-}
-
-@keyframes pulse-stop {
-  0% {
-    box-shadow: 0 0 0 0 rgba(220, 53, 69, 0.4);
-  }
-  70% {
-    box-shadow: 0 0 0 10px rgba(220, 53, 69, 0);
-  }
-  100% {
-    box-shadow: 0 0 0 0 rgba(220, 53, 69, 0);
-  }
+.spotify-icon {
+  font-size: 1.2rem;
 }
 
 .lyrics-container {
@@ -213,18 +194,6 @@
 
 .lyric-line:last-child {
   margin-bottom: 0;
-}
-
-.lyric-line.highlighted {
-  background: linear-gradient(135deg, #e8f4fc, #d0e8f5);
-  box-shadow: 0 0 0 2px #006aa7;
-}
-
-.lyric-swedish-row {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  flex-wrap: wrap;
 }
 
 .lyric-swedish {

@@ -1,45 +1,11 @@
 import { useState } from 'react';
 import type { Lullaby } from '../data/lullabies';
 import { lullabies } from '../data/lullabies';
-import { SpeakButton } from './SpeakButton';
-import { useSpeech } from '../hooks/useSpeech';
 import './Lullabies.css';
 
 export function Lullabies() {
   const [selectedLullaby, setSelectedLullaby] = useState<Lullaby | null>(null);
   const [showTranslations, setShowTranslations] = useState(true);
-  const [playingAll, setPlayingAll] = useState(false);
-  const [currentLine, setCurrentLine] = useState<number | null>(null);
-  const { isSupported } = useSpeech();
-
-  const playFullSong = async () => {
-    if (!selectedLullaby) return;
-
-    setPlayingAll(true);
-    for (let i = 0; i < selectedLullaby.lyrics.length; i++) {
-      setCurrentLine(i);
-      const line = selectedLullaby.lyrics[i];
-
-      await new Promise<void>((resolve) => {
-        const utterance = new SpeechSynthesisUtterance(line.swedish);
-        utterance.lang = 'sv-SE';
-        utterance.rate = 0.75; // Slower for lullabies
-        utterance.onend = () => {
-          setTimeout(resolve, 400);
-        };
-        utterance.onerror = () => resolve();
-        speechSynthesis.speak(utterance);
-      });
-    }
-    setPlayingAll(false);
-    setCurrentLine(null);
-  };
-
-  const stopPlayback = () => {
-    speechSynthesis.cancel();
-    setPlayingAll(false);
-    setCurrentLine(null);
-  };
 
   if (selectedLullaby) {
     return (
@@ -65,30 +31,22 @@ export function Lullabies() {
           </label>
         </div>
 
-        {isSupported && (
-          <div className="playback-controls">
-            {playingAll ? (
-              <button className="stop-btn" onClick={stopPlayback}>
-                Stop Song
-              </button>
-            ) : (
-              <button className="play-btn" onClick={playFullSong}>
-                Sing the Song
-              </button>
-            )}
-          </div>
-        )}
+        <div className="spotify-section">
+          <a
+            href={selectedLullaby.spotifyUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="spotify-btn"
+          >
+            <span className="spotify-icon">🎵</span>
+            Listen on Spotify
+          </a>
+        </div>
 
         <div className="lyrics-container">
           {selectedLullaby.lyrics.map((line, index) => (
-            <div
-              key={index}
-              className={`lyric-line ${currentLine === index ? 'highlighted' : ''}`}
-            >
-              <div className="lyric-swedish-row">
-                <p className="lyric-swedish">{line.swedish}</p>
-                <SpeakButton text={line.swedish} size="small" />
-              </div>
+            <div key={index} className="lyric-line">
+              <p className="lyric-swedish">{line.swedish}</p>
               {showTranslations && <p className="lyric-english">{line.english}</p>}
             </div>
           ))}
@@ -104,8 +62,8 @@ export function Lullabies() {
         <div className="practice-tips">
           <h3>How to Practice:</h3>
           <ol>
-            <li>Click "Sing the Song" to hear the full lullaby</li>
-            <li>Listen line by line and try to sing along</li>
+            <li>Listen to the song on Spotify to learn the melody</li>
+            <li>Follow along with the lyrics here</li>
             <li>Practice a few lines at a time until comfortable</li>
             <li>Sing it to your baby - they will love hearing your voice!</li>
           </ol>
