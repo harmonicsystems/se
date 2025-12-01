@@ -3,11 +3,15 @@ import { Flashcard } from './components/Flashcard';
 import { Quiz } from './components/Quiz';
 import { CategorySelector } from './components/CategorySelector';
 import { VocabularyList } from './components/VocabularyList';
+import { SpeakingPractice } from './components/SpeakingPractice';
+import { Conversations } from './components/Conversations';
 import { vocabulary, categories, getVocabularyByCategory } from './data/vocabulary';
+import { speakingSentences } from './data/sentences';
+import { conversations } from './data/conversations';
 import type { Category } from './types/vocabulary';
 import './App.css';
 
-type View = 'home' | 'flashcards' | 'quiz' | 'vocabulary';
+type View = 'home' | 'flashcards' | 'quiz' | 'vocabulary' | 'speaking' | 'conversations';
 
 function App() {
   const [currentView, setCurrentView] = useState<View>('home');
@@ -57,6 +61,14 @@ function App() {
                 <span className="stat-number">{categories.length}</span>
                 <span className="stat-label">Categories</span>
               </div>
+              <div className="stat-card">
+                <span className="stat-number">{speakingSentences.length}</span>
+                <span className="stat-label">Sentences</span>
+              </div>
+              <div className="stat-card">
+                <span className="stat-number">{conversations.length}</span>
+                <span className="stat-label">Conversations</span>
+              </div>
             </div>
 
             <div className="home-actions">
@@ -72,6 +84,18 @@ function App() {
                 <span className="action-desc">Test your knowledge</span>
               </button>
 
+              <button className="action-card" onClick={() => handleViewChange('speaking')}>
+                <span className="action-icon">🗣️</span>
+                <span className="action-title">Speaking</span>
+                <span className="action-desc">Practice sentences out loud</span>
+              </button>
+
+              <button className="action-card" onClick={() => handleViewChange('conversations')}>
+                <span className="action-icon">💬</span>
+                <span className="action-title">Conversations</span>
+                <span className="action-desc">Realistic dialogues</span>
+              </button>
+
               <button className="action-card" onClick={() => handleViewChange('vocabulary')}>
                 <span className="action-icon">📚</span>
                 <span className="action-title">Browse All</span>
@@ -81,8 +105,8 @@ function App() {
 
             <div className="phrase-of-day">
               <h3>Try saying this to farmor & farfar:</h3>
-              <p className="phrase-swedish">"Vi saknar er! Kom och hälsa på bebisen!"</p>
-              <p className="phrase-english">"We miss you! Come and visit the baby!"</p>
+              <p className="phrase-swedish">"Vi längtar efter att träffa er! Bebisen växer så fort!"</p>
+              <p className="phrase-english">"We long to see you! The baby is growing so fast!"</p>
             </div>
           </div>
         );
@@ -123,6 +147,12 @@ function App() {
             />
           </div>
         );
+
+      case 'speaking':
+        return <SpeakingPractice />;
+
+      case 'conversations':
+        return <Conversations />;
 
       case 'vocabulary':
         return (
@@ -167,6 +197,18 @@ function App() {
             onClick={() => handleViewChange('quiz')}
           >
             Quiz
+          </button>
+          <button
+            className={currentView === 'speaking' ? 'active' : ''}
+            onClick={() => handleViewChange('speaking')}
+          >
+            Speaking
+          </button>
+          <button
+            className={currentView === 'conversations' ? 'active' : ''}
+            onClick={() => handleViewChange('conversations')}
+          >
+            Dialogues
           </button>
           <button
             className={currentView === 'vocabulary' ? 'active' : ''}

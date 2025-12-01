@@ -1,0 +1,269 @@
+.conversations-list {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.conversations-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.conversations-header h2 {
+  color: #006aa7;
+  margin: 0 0 0.5rem;
+}
+
+.conversations-header p {
+  color: #666;
+  margin: 0;
+}
+
+.conversations-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+}
+
+.conversation-card {
+  background: white;
+  border: 2px solid #eee;
+  border-radius: 12px;
+  padding: 1.25rem;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.2s;
+  position: relative;
+}
+
+.conversation-card:hover {
+  border-color: #006aa7;
+  transform: translateY(-3px);
+  box-shadow: 0 4px 15px rgba(0, 106, 167, 0.15);
+}
+
+.card-difficulty {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 10px;
+  font-size: 0.7rem;
+  color: white;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.conversation-card h3 {
+  margin: 0 0 0.25rem;
+  color: #006aa7;
+  font-size: 1.1rem;
+  padding-right: 70px;
+}
+
+.card-swedish {
+  color: #888;
+  font-style: italic;
+  font-size: 0.9rem;
+  margin: 0 0 0.5rem;
+}
+
+.card-description {
+  color: #555;
+  font-size: 0.85rem;
+  margin: 0 0 0.75rem;
+}
+
+.card-lines {
+  display: inline-block;
+  background: #f5f5f5;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  color: #666;
+}
+
+/* Conversation Detail */
+.conversation-detail {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.back-btn {
+  background: transparent;
+  border: 2px solid #006aa7;
+  color: #006aa7;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.2s;
+  margin-bottom: 1.5rem;
+}
+
+.back-btn:hover {
+  background: #006aa7;
+  color: white;
+}
+
+.conversation-header {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.conversation-header h2 {
+  color: #006aa7;
+  margin: 0 0 0.25rem;
+}
+
+.conversation-title-swedish {
+  color: #888;
+  font-style: italic;
+  margin: 0 0 0.75rem;
+}
+
+.difficulty-tag {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  color: white;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.conversation-options {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.conversation-options label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #666;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.conversation-options input[type='checkbox'] {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+.conversation-lines {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+.conversation-line {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.conversation-line:hover {
+  transform: translateX(5px);
+}
+
+.conversation-line.highlighted {
+  box-shadow: 0 0 0 3px #fecc00;
+}
+
+.speaker-you {
+  background: linear-gradient(135deg, #e8f4fc, #d0e8f5);
+  margin-right: 2rem;
+}
+
+.speaker-other {
+  background: linear-gradient(135deg, #fff9e6, #fff3cc);
+  margin-left: 2rem;
+}
+
+.speaker-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 60px;
+}
+
+.speaker-emoji {
+  font-size: 1.5rem;
+}
+
+.speaker-name {
+  font-size: 0.7rem;
+  color: #666;
+  text-align: center;
+}
+
+.line-content {
+  flex: 1;
+}
+
+.line-swedish {
+  margin: 0 0 0.25rem;
+  font-weight: 500;
+  color: #006aa7;
+  font-size: 1.05rem;
+}
+
+.line-english {
+  margin: 0;
+  color: #666;
+  font-size: 0.9rem;
+  font-style: italic;
+}
+
+.practice-tips {
+  background: #f5f5f5;
+  padding: 1.25rem;
+  border-radius: 12px;
+}
+
+.practice-tips h3 {
+  color: #006aa7;
+  font-size: 1rem;
+  margin: 0 0 0.75rem;
+}
+
+.practice-tips ol {
+  margin: 0;
+  padding-left: 1.25rem;
+}
+
+.practice-tips li {
+  color: #555;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.practice-tips li:last-child {
+  margin-bottom: 0;
+}
+
+@media (max-width: 600px) {
+  .speaker-you {
+    margin-right: 0;
+  }
+
+  .speaker-other {
+    margin-left: 0;
+  }
+
+  .speaker-info {
+    min-width: 50px;
+  }
+
+  .line-swedish {
+    font-size: 0.95rem;
+  }
+}

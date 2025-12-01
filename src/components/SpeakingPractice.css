@@ -1,0 +1,224 @@
+.speaking-practice {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.speaking-header {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.speaking-header h2 {
+  color: #006aa7;
+  margin: 0 0 0.5rem;
+}
+
+.speaking-header p {
+  color: #666;
+  margin: 0;
+}
+
+.difficulty-selector {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.diff-btn {
+  padding: 0.5rem 1rem;
+  border: 2px solid #ddd;
+  border-radius: 20px;
+  background: white;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.2s;
+}
+
+.diff-btn:hover {
+  border-color: #006aa7;
+}
+
+.diff-btn.active {
+  background: #006aa7;
+  border-color: #006aa7;
+  color: white;
+}
+
+.sentence-card {
+  background: white;
+  border-radius: 16px;
+  padding: 2rem;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+.difficulty-badge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  color: white;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.context-label {
+  color: #888;
+  font-size: 0.85rem;
+  margin-bottom: 1rem;
+  font-style: italic;
+}
+
+.swedish-sentence {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #006aa7;
+  margin-bottom: 0.75rem;
+  line-height: 1.4;
+}
+
+.pronunciation {
+  font-size: 1rem;
+  color: #666;
+  font-style: italic;
+  margin-bottom: 1rem;
+}
+
+.toggle-btn {
+  background: transparent;
+  border: 2px solid #fecc00;
+  color: #1a1a1a;
+  padding: 0.5rem 1.25rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.2s;
+  margin-bottom: 1rem;
+}
+
+.toggle-btn:hover {
+  background: #fecc00;
+}
+
+.english-sentence {
+  font-size: 1.1rem;
+  color: #333;
+  padding-top: 0.5rem;
+  border-top: 1px solid #eee;
+}
+
+.speaking-controls {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.speaking-controls button {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  background: #006aa7;
+  color: white;
+  transition: all 0.2s;
+}
+
+.speaking-controls button:hover {
+  background: #004a77;
+  transform: translateY(-2px);
+}
+
+.speaking-controls .random-btn {
+  background: #fecc00;
+  color: #1a1a1a;
+}
+
+.speaking-controls .random-btn:hover {
+  background: #e6b800;
+}
+
+.speaking-options {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.speaking-options label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #666;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.speaking-options input[type='checkbox'] {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+.speaking-progress {
+  text-align: center;
+  color: #888;
+  font-size: 0.9rem;
+  margin-bottom: 2rem;
+}
+
+.speaking-tips {
+  background: #f5f5f5;
+  padding: 1.25rem;
+  border-radius: 12px;
+}
+
+.speaking-tips h3 {
+  color: #006aa7;
+  font-size: 1rem;
+  margin: 0 0 0.75rem;
+}
+
+.speaking-tips ul {
+  margin: 0;
+  padding-left: 1.25rem;
+}
+
+.speaking-tips li {
+  color: #555;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.speaking-tips li:last-child {
+  margin-bottom: 0;
+}
+
+.no-sentences {
+  text-align: center;
+  color: #666;
+  padding: 2rem;
+}
+
+@media (max-width: 500px) {
+  .swedish-sentence {
+    font-size: 1.25rem;
+  }
+
+  .difficulty-selector {
+    gap: 0.35rem;
+  }
+
+  .diff-btn {
+    padding: 0.4rem 0.75rem;
+    font-size: 0.8rem;
+  }
+}

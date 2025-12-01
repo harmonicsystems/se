@@ -56,7 +56,7 @@
 .app-nav {
   display: flex;
   justify-content: center;
-  gap: 0.5rem;
+  gap: 0.35rem;
   flex-wrap: wrap;
 }
 
@@ -64,10 +64,10 @@
   background: rgba(255, 255, 255, 0.15);
   border: none;
   color: white;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 0.75rem;
   border-radius: 8px;
   cursor: pointer;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   font-weight: 500;
   transition: all 0.2s;
 }
@@ -89,7 +89,7 @@
 
 /* Home Page */
 .home-content {
-  max-width: 600px;
+  max-width: 700px;
   margin: 0 auto;
 }
 
@@ -111,15 +111,15 @@
 }
 
 .stats-section {
-  display: flex;
-  justify-content: center;
-  gap: 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.75rem;
   margin-bottom: 2rem;
 }
 
 .stat-card {
   background: white;
-  padding: 1.25rem 2rem;
+  padding: 1rem;
   border-radius: 12px;
   text-align: center;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
@@ -127,18 +127,19 @@
 
 .stat-number {
   display: block;
-  font-size: 2rem;
+  font-size: 1.75rem;
   font-weight: 700;
   color: #006aa7;
 }
 
 .stat-label {
-  font-size: 0.85rem;
+  font-size: 0.75rem;
   color: #666;
 }
 
 .home-actions {
   display: grid;
+  grid-template-columns: repeat(2, 1fr);
   gap: 1rem;
   margin-bottom: 2rem;
 }
@@ -148,7 +149,7 @@
   flex-direction: column;
   align-items: center;
   gap: 0.5rem;
-  padding: 1.5rem;
+  padding: 1.25rem 1rem;
   background: white;
   border: 2px solid #eee;
   border-radius: 16px;
@@ -164,17 +165,17 @@
 }
 
 .action-icon {
-  font-size: 2.5rem;
+  font-size: 2rem;
 }
 
 .action-title {
-  font-size: 1.25rem;
+  font-size: 1.1rem;
   font-weight: 600;
   color: #006aa7;
 }
 
 .action-desc {
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   color: #666;
 }
 
@@ -192,14 +193,14 @@
 }
 
 .phrase-swedish {
-  font-size: 1.25rem;
+  font-size: 1.15rem;
   font-weight: 600;
   color: #004a77;
   margin: 0 0 0.5rem;
 }
 
 .phrase-english {
-  font-size: 1rem;
+  font-size: 0.95rem;
   color: #333;
   margin: 0;
   font-style: italic;
@@ -231,13 +232,32 @@
 }
 
 /* Responsive */
-@media (min-width: 500px) {
+@media (min-width: 600px) {
   .home-actions {
     grid-template-columns: repeat(3, 1fr);
   }
 
   .action-card {
-    padding: 2rem 1rem;
+    padding: 1.5rem 1rem;
+  }
+
+  .action-icon {
+    font-size: 2.5rem;
+  }
+
+  .action-title {
+    font-size: 1.2rem;
+  }
+
+  .app-nav button {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 550px) {
+  .stats-section {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
@@ -247,12 +267,18 @@
   }
 
   .stats-section {
-    flex-direction: column;
-    align-items: center;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .home-actions {
+    grid-template-columns: 1fr;
   }
 
   .stat-card {
-    width: 100%;
-    max-width: 200px;
+    padding: 0.75rem;
+  }
+
+  .stat-number {
+    font-size: 1.5rem;
   }
 }
