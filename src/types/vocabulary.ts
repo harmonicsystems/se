@@ -22,7 +22,12 @@ export type Category =
   | 'adjectives'
   | 'time-expressions'
   | 'health-care'
-  | 'food-feeding';
+  | 'food-feeding'
+  | 'numbers'
+  | 'colors'
+  | 'body-parts'
+  | 'days-months'
+  | 'swedish-culture';
 
 export interface CategoryInfo {
   id: Category;
